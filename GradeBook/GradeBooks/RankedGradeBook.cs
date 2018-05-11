@@ -8,6 +8,7 @@ namespace GradeBook.GradeBooks
     {
         public RankedGradeBook(string name) : base(name)
         {
+            Console.WriteLine("**MPC - RankedGradeBook Constructor");
             Type = GradeBookType.Ranked;
         }
 
@@ -22,19 +23,19 @@ namespace GradeBook.GradeBooks
                 int graderank = (int)Math.Ceiling(Students.Count / 5.0);
                 var grades = Students.OrderByDescending(e => e.AverageGrade).Select(e => e.AverageGrade).ToList();
 
-                if (averageGrade <= grades[graderank - 1])
+                if (averageGrade>= grades[graderank - 1])
                 {
                     return 'A';
                 }
-                else if (averageGrade <= grades[graderank * 2 - 1])
+                else if (averageGrade >= grades[graderank * 2 - 1])
                 {
                     return 'B';
                 }
-                else if (averageGrade <= grades[graderank * 3 - 1])
+                else if (averageGrade >= grades[graderank * 3 - 1])
                 {
                     return 'C';
                 }
-                else if (averageGrade <= grades[graderank * 4 - 1])
+                else if (averageGrade >= grades[graderank * 4 - 1])
                 {
                     return 'D';
                 }
