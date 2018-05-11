@@ -23,7 +23,7 @@ namespace GradeBook.GradeBooks
                 int graderank = (int)Math.Ceiling(Students.Count / 5.0);
                 var grades = Students.OrderByDescending(e => e.AverageGrade).Select(e => e.AverageGrade).ToList();
 
-                if (averageGrade>= grades[graderank - 1])
+                if (averageGrade >= grades[graderank - 1])
                 {
                     return 'A';
                 }
